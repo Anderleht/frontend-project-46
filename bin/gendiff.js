@@ -51,3 +51,5 @@ program
 	.arguments('<filepath2>', 'path to second file')
 	.action(genDiff)
 	.parse();
+
+export default genDiff;
