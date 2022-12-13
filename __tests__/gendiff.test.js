@@ -19,14 +19,7 @@ beforeAll(() => {
 describe('genDiff', () => {
     it('test 1', () => {
       const actual = genDiff(firstFile, secondFile);
-      const expected = "{
-        - follow: false
-          host: hexlet.io
-        - proxy: 123.234.53.22
-        - timeout: 50
-        + timeout: 20
-        + verbose: true
-        }";
+      const expected = " ";
       expect(actual).toEqual(expected);
     });
   
