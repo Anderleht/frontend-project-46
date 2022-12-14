@@ -39,6 +39,4 @@ const genDiff = (filepath1, filepath2) => {
 	console.log(str);  
 };
 
-genDiff();
-
-export default genDiff;
+export { getDiff, genDiff, objToString};

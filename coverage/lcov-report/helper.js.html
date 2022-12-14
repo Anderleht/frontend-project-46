@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.09% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/42</span>
+                <span class='fraction'>36/42</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/3</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.09% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/42</span>
+                <span class='fraction'>36/42</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -111,33 +111,21 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -145,6 +133,18 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import fs from 'fs';
@@ -152,43 +152,43 @@ import path from 'path';
 import _ from 'lodash';
 &nbsp;
 &nbsp;
-const getDiff = <span class="fstat-no" title="function not covered" >(first, second) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >	const keys =  _.union(_.keys(first), _.keys(second));</span>
-<span class="cstat-no" title="statement not covered" >	const result = keys.sort().reduce((acc, key) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >		if (Object.hasOwn(first, key) &amp;&amp; Object.hasOwn(second, key)) {</span>
-<span class="cstat-no" title="statement not covered" >			if (first[key] !== second[key]) {</span>
-<span class="cstat-no" title="statement not covered" >				acc[`- ${key}`] = first[key];</span>
-<span class="cstat-no" title="statement not covered" >				acc[`+ ${key}`] = second[key];</span>
-<span class="cstat-no" title="statement not covered" >			} else if (first[key] === second[key]) {</span>
-<span class="cstat-no" title="statement not covered" >				acc[`  ${key}`] = first[key];</span>
-<span class="cstat-no" title="statement not covered" >			}</span>
-<span class="cstat-no" title="statement not covered" >		} else if (Object.hasOwn(first, key) &amp;&amp; !Object.hasOwn(second, key)) {</span>
-<span class="cstat-no" title="statement not covered" >			acc[`- ${key}`] = first[key];</span>
-<span class="cstat-no" title="statement not covered" >		} else if (!Object.hasOwn(first, key) &amp;&amp; Object.hasOwn(second, key)) {</span>
-<span class="cstat-no" title="statement not covered" >			acc[`+ ${key}`] = second[key];</span>
-<span class="cstat-no" title="statement not covered" >		}</span>
-<span class="cstat-no" title="statement not covered" >		return acc;</span>
-<span class="cstat-no" title="statement not covered" >	}, {});</span>
-<span class="cstat-no" title="statement not covered" >	return result;</span>
-<span class="cstat-no" title="statement not covered" >};</span>
-const objToString = (<span class="fstat-no" title="function not covered" >object) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >	const newArr = Object.entries(object);</span>
-<span class="cstat-no" title="statement not covered" >	const str = `{     </span>
-<span class="cstat-no" title="statement not covered" >${newArr.join('\n')} </span>
-<span class="cstat-no" title="statement not covered" >}`;</span>
-<span class="cstat-no" title="statement not covered" >	const re = /,/g;</span>
-<span class="cstat-no" title="statement not covered" >	const fixedStr = str.replace(re, ': ');</span>
-<span class="cstat-no" title="statement not covered" >	return fixedStr;</span>
-<span class="cstat-no" title="statement not covered" >};</span>
-const genDiff = (filepath1, filepath2) =&gt; {
-	const firstObject = JSON.parse(fs.readFileSync(path.resolve(filepath1)));       
-	const secondObject = JSON.parse(fs.readFileSync(path.resolve(filepath2)));
-	const resultObject = getDiff(firstObject, secondObject);
-	const str = objToString(resultObject);
-	console.log(str);  
+const getDiff = (first, second) =&gt; {
+	const keys =  _.union(_.keys(first), _.keys(second));
+	const result = keys.sort().reduce((acc, key) =&gt; {
+		if (Object.hasOwn(first, key) &amp;&amp; Object.hasOwn(second, key)) {
+			if (first[key] !== second[key]) {
+				acc[`- ${key}`] = first[key];
+				acc[`+ ${key}`] = second[key];
+			} else if (first[key] === second[key]) {
+				acc[`  ${key}`] = first[key];
+			}
+		} else if (Object.hasOwn(first, key) &amp;&amp; !Object.hasOwn(second, key)) {
+			acc[`- ${key}`] = first[key];
+		} else if (!Object.hasOwn(first, key) &amp;&amp; Object.hasOwn(second, key)) {
+			acc[`+ ${key}`] = second[key];
+		}
+		return acc;
+	}, {});
+	return result;
 };
+const objToString = (object) =&gt; {
+	const newArr = Object.entries(object);
+	const str = `{     
+${newArr.join('\n')} 
+}`;
+	const re = /,/g;
+	const fixedStr = str.replace(re, ': ');
+	return fixedStr;
+};
+const genDiff = <span class="fstat-no" title="function not covered" >(filepath1, filepath2) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >	const firstObject = JSON.parse(fs.readFileSync(path.resolve(filepath1)));       </span>
+<span class="cstat-no" title="statement not covered" >	const secondObject = JSON.parse(fs.readFileSync(path.resolve(filepath2)));</span>
+<span class="cstat-no" title="statement not covered" >	const resultObject = getDiff(firstObject, secondObject);</span>
+<span class="cstat-no" title="statement not covered" >	const str = objToString(resultObject);</span>
+<span class="cstat-no" title="statement not covered" >	console.log(str);  </span>
+<span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
-export default genDiff;
+export { getDiff, genDiff, objToString};
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -196,7 +196,7 @@ export default genDiff;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-12-13T15:37:00.225Z
+                at 2022-12-14T14:26:41.862Z
             </div>
         <script src="prettify.js"></script>
         <script>
