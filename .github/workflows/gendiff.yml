@@ -6,6 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
-      - run: npm link
+      - run: npm install lodash
       - run: npm run test
       - run: make lint
