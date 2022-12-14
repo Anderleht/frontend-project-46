@@ -24,8 +24,8 @@ const getDiff = (first, second) => {
 };
 const objToString = (object) => {
 	const newArr = Object.entries(object);
-	const str = `{     
-${newArr.join('\n')} 
+	const str = `{
+${newArr.join('\n')}
 }`;
 	const re = /,/g;
 	const fixedStr = str.replace(re, ': ');
@@ -36,7 +36,8 @@ const genDiff = (filepath1, filepath2) => {
 	const secondObject = JSON.parse(fs.readFileSync(path.resolve(filepath2)));
 	const resultObject = getDiff(firstObject, secondObject);
 	const str = objToString(resultObject);
-	console.log(str);  
+	console.log(str);
+	return str;  
 };
 
 export { getDiff, genDiff, objToString};
