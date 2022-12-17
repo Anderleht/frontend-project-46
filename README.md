@@ -14,3 +14,4 @@ in main folder of project: make install;
 ```
 ## Demonstartion of programm
 [![asciicast](https://asciinema.org/a/UXrph9rwBuhj7VwFxJyVfG3AT.svg)](https://asciinema.org/a/UXrph9rwBuhj7VwFxJyVfG3AT)
+![asciicast](https://asciinema.org/a/RlDAAVdej3okQCaALYFCJ5nu8.svg)](https://asciinema.org/a/RlDAAVdej3okQCaALYFCJ5nu8)

@@ -14,13 +14,20 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 
 const path1 = getFixturePath('file1.json');
 const path2 = getFixturePath('file2.json');
+const path3 = getFixturePath('file1.yml');
+const path4 = getFixturePath('file2.yml');
 
 describe('genDiff', () => {
-	it('test 1', () => {
+	it('test json', () => {
 		const actual = genDiff(path1, path2);
 		const expected = readFile('tester.txt');
 		expect(actual).toEqual(expected);
 	});
-  
+	it('test yml', () => {
+		const actual = genDiff(path3, path4);
+		const expected = readFile('tester.txt');
+		expect(actual).toEqual(expected);
+	});
 });
+  
   
