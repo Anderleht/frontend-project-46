@@ -38,25 +38,25 @@ ${newArr.join('\n')}
 };
 
 const readFile = (filePath) => fs.readFileSync(path.resolve(filePath));
+const getParse = (filePath) => {
+	const format = path.extname(filePath);
+	const file = readFile(filePath);
+	let result;
+	if (format === '.json') {
+		result = jsonParse(file);
+		return result;       
+	} else if (format === '.yml' || format === '.yaml') {
+		result = yamlParse(file);
+		return result;
+	}
+};
  
-const genDiff = (filepath1, filepath2) => {
-	let firstObject;
-	let secondObject;
-	const firstEnder = path.extname(filepath1);
-	const secondEnder = path.extname(filepath2);
-	if (firstEnder === '.json') {
-		firstObject = jsonParse(readFile(filepath1));       
-	} else if (firstEnder === '.yml' || firstEnder === '.yaml') {
-		firstObject = yamlParse(readFile(filepath1));
-	}
-	if (secondEnder === '.json') {
-		secondObject = jsonParse(readFile(filepath2));   
-	} else if (secondEnder === '.yml' || secondEnder === '.yaml') {
-		secondObject = yamlParse(readFile(filepath2));
-	}
+const genDiff = (filePath1, filePath2) => {
+	const firstObject = getParse(filePath1);
+	const secondObject = getParse(filePath2);
 	const resultObject = getDiff(firstObject, secondObject);
 	const str = objToString(resultObject);
-	console.log(str,);
+	console.log(str);
 	return str;  
 };
 
