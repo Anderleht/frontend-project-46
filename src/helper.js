@@ -27,28 +27,11 @@ const getDiff = (data1, data2) => {
 	return result;
 };
 
-const stylish = (diffObj, data1, data2) => {
-	const diffKeys = _.keys(diffObj);
-	const result = diffKeys.sort().reduce((acc, key) => {
-		if (diffObj[key] === 'nested') {
-			acc[key] === getDiff(data1[key], data2[key]);
-		} else if (diffObj[key] === 'added') {
-			acc[`+ ${key}`] = data2[key];
-		} else if (diffObj[key] === 'deleted') {
-			acc[`- ${key}`] = data1[key];
-		} else if (diffObj[key] === 'changed') {
-			acc[`- ${key}`] = data1[key];
-			acc[`+ ${key}`] = data2[key];
-		} else if (diffObj[key] === 'unchanged') {
-			acc[` ${key}`] = data1[key];
-		}
-		return acc;
-	}, {});
-	return result;
-};
-
-
-const objToString = (value, replacer = ' ', spacesCount = 1) => {
+const objToString = (firstObject, secondObject) => {
+	const value = getDiff(firstObject, secondObject);
+	console.log(value);
+	const replacer = ' ';
+	const spacesCount = 1;
 	const iter = (currentValue, depth) => {
 		if (typeof currentValue !== 'object' || currentValue === null) {
 			return String(currentValue);
@@ -58,7 +41,23 @@ const objToString = (value, replacer = ' ', spacesCount = 1) => {
 		const bracketIndent = replacer.repeat(indentSize - spacesCount);
   
 		const arrValue = Object.entries(currentValue);
-		const lines = arrValue.map(([key, val]) => `${currentIndent}${key}: ${iter(val, depth + 1)}`);
+		const lines = arrValue.flatMap(([key, val]) => {
+			if (val === 'added') {
+				return `${currentIndent} + ${key}: ${iter(secondObject[key], depth + 1)}`;
+			}
+			else if (val === 'nested') {
+				return `${currentIndent}${key}: ${iter(depth + 1)}`;
+			}
+			else if (val === 'deleted') {
+				return `${currentIndent} - ${key}: ${iter(firstObject[key], depth + 1)}`;
+			}
+			else if (val === 'unchanged') {
+				return `${currentIndent}${key}: ${iter(firstObject[key], depth + 1)}`;
+			}
+			else if (val === 'changed') {
+				return `${currentIndent} - ${key}: ${iter(firstObject[key], depth + 1)}\n${currentIndent} + ${key}: ${iter(secondObject[key], depth + 1)}`; 
+			}
+		});
 		const result = ['{', ...lines, `${bracketIndent}}`].join('\n');
   
 		return result;
