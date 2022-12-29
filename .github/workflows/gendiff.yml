@@ -9,13 +9,13 @@ jobs:
       - run: npm install lodash
       - run: npm run test
       - run: make lint
-# - name: Test & publish code coverage
-      #   # Publish code coverage on Code Climate
-      #   # https://github.com/paambaati/codeclimate-action
-      #   uses: paambaati/codeclimate-action@v3.0.0
-      #   # Add Code Climate secret key
-      #   env:
-      #     CC_TEST_REPORTER_ID: 9ca5b71e4e1f30c3aefb0ccad4c59ffde58589b5bc0997477006f9a8006b8799
-      #   with:
-      #     coverageCommand: make test-coverage
-      #     debug: true
+     - name: Test & publish code coverage
+          Publish code coverage on Code Climate
+            https://github.com/paambaati/codeclimate-action
+           uses: paambaati/codeclimate-action@v3.0.0
+           Add Code Climate secret key
+      env:
+        CC_TEST_REPORTER_ID: 9ca5b71e4e1f30c3aefb0ccad4c59ffde58589b5bc0997477006f9a8006b8799
+           with:
+             coverageCommand: make test-coverage
+              debug: true
