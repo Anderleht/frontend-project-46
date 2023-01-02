@@ -18,14 +18,24 @@ const path3 = getFixturePath('file1.yml');
 const path4 = getFixturePath('file2.yml');
 
 describe('genDiff', () => {
-	it('test json', () => {
+	it('test stylish json', () => {
 		const actual = genDiff(path1, path2);
 		const expected = readFile('tester.txt');
 		expect(actual).toEqual(expected);
 	});
-	it('test yml', () => {
+	it('test stylish yml', () => {
 		const actual = genDiff(path3, path4);
 		const expected = readFile('tester.txt');
+		expect(actual).toEqual(expected);
+	});
+	it('test plain json', () => {
+		const actual = genDiff(path1, path2, 'plain');
+		const expected = readFile('tester2.txt');
+		expect(actual).toEqual(expected);
+	});
+	it('test plain yml', () => {
+		const actual = genDiff(path3, path4, 'plain');
+		const expected = readFile('tester2.txt');
 		expect(actual).toEqual(expected);
 	});
 });
