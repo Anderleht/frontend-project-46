@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/Anderleht/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/Anderleht/frontend-project-46/actions)",
-  "main": "bin/gendiff.js",
+  "main": "bin/index.js",
   "type": "module",
   "bin": {
     "gendiff": "bin/index.js"
