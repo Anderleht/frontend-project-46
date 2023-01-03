@@ -13,24 +13,26 @@ const stylish = (value) => {
   
 		const arrValue = Object.entries(currentValue);
 		const lines = arrValue.map(([key, val]) => {
+			let line;
 			if (val.status === 'added') {
-				return `${currentIndent}  + ${key}: ${iter(val.value, depth + 1)}`;
+				line = `${currentIndent}  + ${key}: ${iter(val.value, depth + 1)}`;
 			}
 			else if (val.status === 'nested') {
-				return `${currentIndent}  ${key}: ${iter(val.value, depth + 1)}`;
+				line = `${currentIndent}  ${key}: ${iter(val.value, depth + 1)}`;
 			}
 			else if (val.status === 'deleted') {
-				return `${currentIndent}  - ${key}: ${iter(val.value, depth + 1)}`;
+				line = `${currentIndent}  - ${key}: ${iter(val.value, depth + 1)}`;
 			}
 			else if (val.status === 'unchanged') {
-				return `${currentIndent}    ${key}: ${iter(val.value, depth + 1)}`;
+				line = `${currentIndent}    ${key}: ${iter(val.value, depth + 1)}`;
 			}
 			else if (val.status === 'changed') {
-				return `${currentIndent}  - ${key}: ${iter(val.value, depth + 1)}\n${currentIndent}  + ${key}: ${iter(val.value2, depth + 1)}`; 
+				line = `${currentIndent}  - ${key}: ${iter(val.value, depth + 1)}\n${currentIndent}  + ${key}: ${iter(val.value2, depth + 1)}`; 
 			}
 			else {
-				return `${currentIndent}    ${key}: ${iter(val, depth + 1)}`;
+				line = `${currentIndent}      ${key}: ${iter(val, depth + 1)}`;
 			}
+			return line;
 		});
 		const result = ['{', ...lines, `${bracketIndent}}`].join('\n');
   
