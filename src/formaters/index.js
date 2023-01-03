@@ -9,6 +9,10 @@ const getFormat = (value, format) => {
 	else if (format === 'plain') {
 		const str = plain(value);
 		return str;  
+	} 
+	else if (format === 'json') {
+		const str = JSON.stringify(value, null, 2);
+		return str;
 	}
 };
 export default getFormat;

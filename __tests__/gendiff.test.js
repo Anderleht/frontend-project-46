@@ -38,6 +38,11 @@ describe('genDiff', () => {
 		const expected = readFile('tester2.txt');
 		expect(actual).toEqual(expected);
 	});
+	it('test json', () => {
+		const actual = genDiff(path1, path2, 'json');
+		const expected = readFile('tester3.txt');
+		expect(actual).toEqual(expected);
+	});
 });
   
   

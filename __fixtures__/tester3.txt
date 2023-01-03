@@ -1,0 +1,130 @@
+{
+  "common": {
+    "name": "common",
+    "status": "nested",
+    "value": {
+      "follow": {
+        "name": "follow",
+        "status": "added",
+        "value": false,
+        "value2": ""
+      },
+      "setting1": {
+        "name": "setting1",
+        "status": "unchanged",
+        "value": "Value 1",
+        "value2": ""
+      },
+      "setting2": {
+        "name": "setting2",
+        "status": "deleted",
+        "value": 200,
+        "value2": ""
+      },
+      "setting3": {
+        "name": "setting3",
+        "status": "changed",
+        "value": true,
+        "value2": null
+      },
+      "setting4": {
+        "name": "setting4",
+        "status": "added",
+        "value": "blah blah",
+        "value2": ""
+      },
+      "setting5": {
+        "name": "setting5",
+        "status": "added",
+        "value": {
+          "key5": "value5"
+        },
+        "value2": ""
+      },
+      "setting6": {
+        "name": "setting6",
+        "status": "nested",
+        "value": {
+          "doge": {
+            "name": "doge",
+            "status": "nested",
+            "value": {
+              "wow": {
+                "name": "wow",
+                "status": "changed",
+                "value": "",
+                "value2": "so much"
+              }
+            },
+            "value2": ""
+          },
+          "key": {
+            "name": "key",
+            "status": "unchanged",
+            "value": "value",
+            "value2": ""
+          },
+          "ops": {
+            "name": "ops",
+            "status": "added",
+            "value": "vops",
+            "value2": ""
+          }
+        },
+        "value2": ""
+      }
+    },
+    "value2": ""
+  },
+  "group1": {
+    "name": "group1",
+    "status": "nested",
+    "value": {
+      "baz": {
+        "name": "baz",
+        "status": "changed",
+        "value": "bas",
+        "value2": "bars"
+      },
+      "foo": {
+        "name": "foo",
+        "status": "unchanged",
+        "value": "bar",
+        "value2": ""
+      },
+      "nest": {
+        "name": "nest",
+        "status": "changed",
+        "value": {
+          "key": "value"
+        },
+        "value2": "str"
+      }
+    },
+    "value2": ""
+  },
+  "group2": {
+    "name": "group2",
+    "status": "deleted",
+    "value": {
+      "abc": 12345,
+      "deep": {
+        "id": 45
+      }
+    },
+    "value2": ""
+  },
+  "group3": {
+    "name": "group3",
+    "status": "added",
+    "value": {
+      "deep": {
+        "id": {
+          "number": 45
+        }
+      },
+      "fee": 100500
+    },
+    "value2": ""
+  }
+}
