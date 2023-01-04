@@ -5,7 +5,7 @@
   "main": "bin/index.js",
   "type": "module",
   "bin": {
-    "gendiff": "bin/index.js"
+    "gendiff": "src/genDiff.js"
   },
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --bail --coverage"
