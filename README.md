@@ -14,4 +14,7 @@ in main folder of project: make install;
 ```
 ## Demonstartion of programm
 [![asciicast](https://asciinema.org/a/UXrph9rwBuhj7VwFxJyVfG3AT.svg)](https://asciinema.org/a/UXrph9rwBuhj7VwFxJyVfG3AT)
-![asciicast](https://asciinema.org/a/RlDAAVdej3okQCaALYFCJ5nu8.svg)](https://asciinema.org/a/RlDAAVdej3okQCaALYFCJ5nu8)
+## Demonstration of plain format
+[![asciicast](https://asciinema.org/a/0wTuJs4EC5ZuGqfn8gkWdzyMK.svg)](https://asciinema.org/a/0wTuJs4EC5ZuGqfn8gkWdzyMK)
+## Demonstration of json format
+[![asciicast](https://asciinema.org/a/4TlLOgaCGl495Qaa61tq6knWl.svg)](https://asciinema.org/a/4TlLOgaCGl495Qaa61tq6knWl)
