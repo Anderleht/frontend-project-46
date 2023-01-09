@@ -4,7 +4,8 @@ import _ from 'lodash';
 
 const getKeys = (obj1, obj2) => {
   const keys = _.union(_.keys(obj1), _.keys(obj2));
-  return keys.sort();
+  const sortedKeys = keys.sort();
+  return sortedKeys;
 };
 
 const getDiff = (data1, data2) => {
