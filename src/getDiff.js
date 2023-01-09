@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 const getKeys = (obj1, obj2) => {
   const keys = _.union(_.keys(obj1), _.keys(obj2));
-  const sortedKeys = keys.sort();
+  const sortedKeys = _.sortBy(keys);
   return sortedKeys;
 };
 
