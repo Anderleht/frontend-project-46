@@ -1,112 +1,112 @@
-{
-  "common": {
+[
+  {
     "name": "common",
     "status": "nested",
-    "value": {
-      "follow": {
+    "value1": [
+      {
         "name": "follow",
         "status": "added",
-        "value": false,
+        "value1": false,
         "value2": ""
       },
-      "setting1": {
+      {
         "name": "setting1",
         "status": "unchanged",
-        "value": "Value 1",
+        "value1": "Value 1",
         "value2": ""
       },
-      "setting2": {
+      {
         "name": "setting2",
         "status": "deleted",
-        "value": 200,
+        "value1": 200,
         "value2": ""
       },
-      "setting3": {
+      {
         "name": "setting3",
         "status": "changed",
-        "value": true,
+        "value1": true,
         "value2": null
       },
-      "setting4": {
+      {
         "name": "setting4",
         "status": "added",
-        "value": "blah blah",
+        "value1": "blah blah",
         "value2": ""
       },
-      "setting5": {
+      {
         "name": "setting5",
         "status": "added",
-        "value": {
+        "value1": {
           "key5": "value5"
         },
         "value2": ""
       },
-      "setting6": {
+      {
         "name": "setting6",
         "status": "nested",
-        "value": {
-          "doge": {
+        "value1": [
+          {
             "name": "doge",
             "status": "nested",
-            "value": {
-              "wow": {
+            "value1": [
+              {
                 "name": "wow",
                 "status": "changed",
-                "value": "",
+                "value1": "",
                 "value2": "so much"
               }
-            },
+            ],
             "value2": ""
           },
-          "key": {
+          {
             "name": "key",
             "status": "unchanged",
-            "value": "value",
+            "value1": "value",
             "value2": ""
           },
-          "ops": {
+          {
             "name": "ops",
             "status": "added",
-            "value": "vops",
+            "value1": "vops",
             "value2": ""
           }
-        },
+        ],
         "value2": ""
       }
-    },
+    ],
     "value2": ""
   },
-  "group1": {
+  {
     "name": "group1",
     "status": "nested",
-    "value": {
-      "baz": {
+    "value1": [
+      {
         "name": "baz",
         "status": "changed",
-        "value": "bas",
+        "value1": "bas",
         "value2": "bars"
       },
-      "foo": {
+      {
         "name": "foo",
         "status": "unchanged",
-        "value": "bar",
+        "value1": "bar",
         "value2": ""
       },
-      "nest": {
+      {
         "name": "nest",
         "status": "changed",
-        "value": {
+        "value1": {
           "key": "value"
         },
         "value2": "str"
       }
-    },
+    ],
     "value2": ""
   },
-  "group2": {
+  {
     "name": "group2",
     "status": "deleted",
-    "value": {
+    "value1": {
       "abc": 12345,
       "deep": {
         "id": 45
@@ -114,10 +114,10 @@
     },
     "value2": ""
   },
-  "group3": {
+  {
     "name": "group3",
     "status": "added",
-    "value": {
+    "value1": {
       "deep": {
         "id": {
           "number": 45
@@ -127,4 +127,4 @@
     },
     "value2": ""
   }
-}
+]

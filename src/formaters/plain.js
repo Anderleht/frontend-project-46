@@ -7,27 +7,27 @@ const getType = (type) => {
   }
   return type;
 };
+
+const choosePath = (path, value) => {
+  if (path === '') {
+    return value.name;
+  }
+  return `${path}.${value.name}`;
+};
+
 const plain = (value) => {
   const iter = (currentValue, path = '') => {
-    let currentPath;
-    const arrValue = Object.entries(currentValue);
-    const lines = arrValue.flatMap(([key, val]) => {
-      let line;
-      if (path === '') {
-        currentPath = key;
-      } else {
-        currentPath = `${path}.${key}`;
-      }
+    const arrValue = Object.values(currentValue);
+    const lines = arrValue.flatMap((val) => {
+      const currentPath = choosePath(path, val);
       if (val.status === 'added') {
-        line = `Property '${currentPath}' was added with value: ${getType(val.value)}`;
-      } else if (val.status === 'nested') {
-        return iter(val.value, currentPath);
-      } else if (val.status === 'deleted') {
-        line = `Property '${currentPath}' was removed`;
-      } else if (val.status === 'changed') {
-        line = `Property '${currentPath}' was updated. From ${getType(val.value)} to ${getType(val.value2)}`;
+        return `Property '${currentPath}' was added with value: ${getType(val.value1)}`;
+      } if (val.status === 'changed') {
+        return `Property '${currentPath}' was updated. From ${getType(val.value1)} to ${getType(val.value2)}`;
+      } if (val.status === 'nested') {
+        return iter(val.value1, currentPath);
       }
-      return line;
+      return (val.status === 'deleted') ? `Property '${currentPath}' was removed` : [];
     });
     const filteredLines = lines.filter((line) => line !== undefined);
     return filteredLines.join('\n');

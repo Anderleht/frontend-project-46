@@ -6,42 +6,47 @@ const getKeys = (obj1, obj2) => {
   const keys = _.union(_.keys(obj1), _.keys(obj2));
   return keys.sort();
 };
-const createInitTree = (name, status = '', value = '', value2 = '') => ({
-  name,
-  status,
-  value,
-  value2,
-});
 
 const getDiff = (data1, data2) => {
   const keys = getKeys(data1, data2);
-  const result = keys.reduce((acc, key) => {
+  const result = keys.map((key) => {
     const val1 = data1[key];
     const val2 = data2[key];
-    const node = createInitTree(key);
     if (!Object.hasOwn(data1, key)) {
-      node.status = 'added';
-      node.value = val2;
-      acc[key] = node;
-    } else if (!Object.hasOwn(data2, key)) {
-      node.status = 'deleted';
-      node.value = val1;
-      acc[key] = node;
-    } else if (typeof val1 === 'object' && typeof val2 === 'object') {
-      node.status = 'nested';
-      node.value = getDiff(data1[key], data2[key]);
-      acc[key] = node;
-    } else if (data1[key] !== data2[key]) {
-      node.status = 'changed';
-      node.value = val1;
-      node.value2 = val2;
-      acc[key] = node;
-    } else {
-      node.status = 'unchanged';
-      node.value = val1;
-      acc[key] = node;
+      return {
+        name: key,
+        status: 'added',
+        value1: val2,
+        value2: '',
+      };
+    } if (!Object.hasOwn(data2, key)) {
+      return {
+        name: key,
+        status: 'deleted',
+        value1: val1,
+        value2: '',
+      };
+    } if (typeof val1 === 'object' && typeof val2 === 'object') {
+      return {
+        name: key,
+        status: 'nested',
+        value1: getDiff(data1[key], data2[key]),
+        value2: '',
+      };
+    } if (data1[key] !== data2[key]) {
+      return {
+        name: key,
+        status: 'changed',
+        value1: val1,
+        value2: val2,
+      };
     }
-    return acc;
+    return {
+      name: key,
+      status: 'unchanged',
+      value1: val1,
+      value2: '',
+    };
   }, {});
   return result;
 };
