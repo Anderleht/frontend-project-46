@@ -4,7 +4,7 @@ import stylish from './stylish.js';
 const getFormat = (value, format) => {
 	if (format === 'stylish') {
 		const str = stylish(value);
-		return str;  
+		return str.substring(0, str.length - 3) + '}';  
 	}
 	else if (format === 'plain') {
 		const str = plain(value);

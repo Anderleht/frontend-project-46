@@ -36,7 +36,7 @@ const stylish = (value) => {
 			}
 			return line;
 		});
-		const result = ['{', ...lines, `${indent(depth -1)}  }`].join('\n');
+		const result = ['{', ...lines, `${indent(depth - 1)}  }`].join('\n');
 		return result;
 	};
 	return iter(value, 1);
