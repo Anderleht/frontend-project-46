@@ -1,5 +1,5 @@
 import yaml from 'js-yaml';
-import { readFile } from './getDiff';
+import { readFile } from './getDiff.js';
 
 const jsonParse = (filePath) => JSON.parse(filePath);
 

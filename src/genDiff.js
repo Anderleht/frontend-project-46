@@ -1,7 +1,7 @@
 import path from 'path';
-import { getDiff } from './getDiff';
-import parse from './parsers';
-import getFormat from './formaters/index';
+import { getDiff } from './getDiff.js';
+import parse from './parsers.js';
+import getFormat from './formaters/index.js';
 
 const genDiff = (filePath1, filePath2, format = 'stylish') => {
   const format1 = path.extname(filePath1);

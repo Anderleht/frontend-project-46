@@ -1,5 +1,5 @@
-import plain from './plain';
-import stylish from './stylish';
+import plain from './plain.js';
+import stylish from './stylish.js';
 
 const getFormat = (value, format) => {
   if (format === 'stylish') {
