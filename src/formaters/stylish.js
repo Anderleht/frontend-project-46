@@ -1,13 +1,13 @@
-const indent = (depth, spacesCount = 4) => ' '.repeat(depth * spacesCount - 2);
+const indent = (depth, spacesCount = 4) => ' '.repeat(depth * spacesCount).slice(0, -2);
 
 const stringify = (value, depth = 1) => {
-	if (typeof value!== 'object' || value === null) {
+	if (typeof value !== 'object' || value === null) {
 		return String(value);
 	}
 	const arrValue = Object.entries(value);
 	const lines = arrValue.map(([key, val]) => `${indent(depth)}  ${key}: ${stringify(val, depth + 1)}`);
-	const result = ['{', ...lines, `${indent(depth, 3)}}`].join('\n');
-  
+	const result = ['{', ...lines, `${indent(depth - 1)}  }`].join('\n');
+
 	return result;
 };
 
@@ -32,11 +32,11 @@ const stylish = (value) => {
 				line = `${indent(depth)}  ${key}: ${stringify(val.value, depth + 1)}`;
 			}
 			else if (val.status === 'changed') {
-				line = `${indent(depth)}- ${key}: ${stringify(val.value, depth + 1)}\n${indent(depth)}+ ${key}: ${stringify(val.value2, depth + 1)}`; 
+				line = `${indent(depth)}- ${key}: ${stringify(val.value, depth + 1)}\n${indent(depth)}+ ${key}: ${stringify(val.value2, depth + 1)}`;
 			}
 			return line;
 		});
-		const result = ['{', ...lines, `${indent(depth, 3)}}`].join('\n');
+		const result = ['{', ...lines, `${indent(depth - 1)}}`].join('\n');
 		return result;
 	};
 	return iter(value, 1);
