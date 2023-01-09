@@ -7,13 +7,10 @@ const yamlParse = (filePath) => yaml.load(filePath);
 
 const parse = (filePath, format) => {
   const file = readFile(filePath);
-  let result;
   if (format === '.json') {
-    result = jsonParse(file);
-    return result;
+    return jsonParse(file);
   } if (format === '.yml' || format === '.yaml') {
-    result = yamlParse(file);
-    return result;
+    return yamlParse(file);
   }
   return 'Error wrong format';
 };

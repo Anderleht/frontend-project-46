@@ -18,19 +18,16 @@ const stylish = (value) => {
     }
     const arrValue = Object.entries(currentValue);
     const lines = arrValue.map(([key, val]) => {
-      let line;
       if (val.status === 'added') {
-        line = `${indent(depth)}+ ${key}: ${stringify(val.value, depth + 1)}`;
-      } else if (val.status === 'nested') {
-        line = `${indent(depth)}  ${key}: ${iter(val.value, depth + 1)}`;
-      } else if (val.status === 'deleted') {
-        line = `${indent(depth)}- ${key}: ${stringify(val.value, depth + 1)}`;
-      } else if (val.status === 'unchanged') {
-        line = `${indent(depth)}  ${key}: ${stringify(val.value, depth + 1)}`;
-      } else if (val.status === 'changed') {
-        line = `${indent(depth)}- ${key}: ${stringify(val.value, depth + 1)}\n${indent(depth)}+ ${key}: ${stringify(val.value2, depth + 1)}`;
+        return `${indent(depth)}+ ${key}: ${stringify(val.value, depth + 1)}`;
+      } if (val.status === 'nested') {
+        return `${indent(depth)}  ${key}: ${iter(val.value, depth + 1)}`;
+      } if (val.status === 'deleted') {
+        return `${indent(depth)}- ${key}: ${stringify(val.value, depth + 1)}`;
+      } if (val.status === 'unchanged') {
+        return `${indent(depth)}  ${key}: ${stringify(val.value, depth + 1)}`;
       }
-      return line;
+      return `${indent(depth)}- ${key}: ${stringify(val.value, depth + 1)}\n${indent(depth)}+ ${key}: ${stringify(val.value2, depth + 1)}`;
     });
     const result = ['{', ...lines, `${indent(depth - 1)}  }`].join('\n');
     return result;
