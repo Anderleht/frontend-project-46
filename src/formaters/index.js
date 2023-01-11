@@ -14,6 +14,6 @@ const getFormat = (value, format) => {
     const str = JSON.stringify(value, null, 2);
     return str;
   }
-  return 'Error wrong format';
+  throw new Error(`Wrong formater: ${format}`);
 };
 export default getFormat;
