@@ -6,7 +6,7 @@
 ## Description
 This program compares two configuration files and shows a difference in different formats like 'json', 'stylish' or 'plain'.
 ## System requirement
-node js version at least 13.0
+node js version at least 13.0,
 "make" utility
 ## Installation
 ```
