@@ -3,4 +3,4 @@ install:
 lint: 
 	npx eslint .
 test-coverage:
-	npx jest --coverage
+	npm run test
