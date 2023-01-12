@@ -18,7 +18,7 @@ describe('genDiff yml test', () => {
   test.each([
     [genDiff(path3, path4), readFile('tester.txt')],
     [genDiff(path3, path4, 'plain'), readFile('tester2.txt')],
-  ])('should be expected', (actual, expected) => {
+  ])('Yml with stylish, and plain', (actual, expected) => {
     expect(actual).toBe(expected);
   });
 });
@@ -27,7 +27,7 @@ describe('genDiff json test', () => {
     [genDiff(path1, path2), readFile('tester.txt')],
     [genDiff(path1, path2, 'plain'), readFile('tester2.txt')],
     [genDiff(path1, path2, 'json'), readFile('tester3.txt')],
-  ])('should be expected', (actual, expected) => {
+  ])('json with stylish, plain, json', (actual, expected) => {
     expect(actual).toBe(expected);
   });
 });
