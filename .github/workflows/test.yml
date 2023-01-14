@@ -1,4 +1,4 @@
-name: genDiff
+name: CheckTestsAndLint
 
 on: push
 jobs:
@@ -7,7 +7,6 @@ jobs:
     steps: 
       - uses: actions/checkout@v2
       - run: npm install lodash
-      - run: npm run test
       - run: make lint
       - name: Coverage test
         uses: paambaati/codeclimate-action@v3.0.0
