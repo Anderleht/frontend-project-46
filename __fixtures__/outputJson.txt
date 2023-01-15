@@ -2,24 +2,49 @@
   {
     "name": "common",
     "status": "nested",
-    "value1": [
+    "value1": {
+      "setting1": "Value 1",
+      "setting2": 200,
+      "setting3": true,
+      "setting6": {
+        "key": "value",
+        "doge": {
+          "wow": ""
+        }
+      }
+    },
+    "value2": {
+      "follow": false,
+      "setting1": "Value 1",
+      "setting3": null,
+      "setting4": "blah blah",
+      "setting5": {
+        "key5": "value5"
+      },
+      "setting6": {
+        "key": "value",
+        "ops": "vops",
+        "doge": {
+          "wow": "so much"
+        }
+      }
+    },
+    "children": [
       {
         "name": "follow",
         "status": "added",
-        "value1": false,
-        "value2": ""
+        "value2": false
       },
       {
         "name": "setting1",
         "status": "unchanged",
         "value1": "Value 1",
-        "value2": ""
+        "value2": "Value 1"
       },
       {
         "name": "setting2",
         "status": "deleted",
-        "value1": 200,
-        "value2": ""
+        "value1": 200
       },
       {
         "name": "setting3",
@@ -30,56 +55,81 @@
       {
         "name": "setting4",
         "status": "added",
-        "value1": "blah blah",
-        "value2": ""
+        "value2": "blah blah"
       },
       {
         "name": "setting5",
         "status": "added",
-        "value1": {
+        "value2": {
           "key5": "value5"
-        },
-        "value2": ""
+        }
       },
       {
         "name": "setting6",
         "status": "nested",
-        "value1": [
+        "value1": {
+          "key": "value",
+          "doge": {
+            "wow": ""
+          }
+        },
+        "value2": {
+          "key": "value",
+          "ops": "vops",
+          "doge": {
+            "wow": "so much"
+          }
+        },
+        "children": [
           {
             "name": "doge",
             "status": "nested",
-            "value1": [
+            "value1": {
+              "wow": ""
+            },
+            "value2": {
+              "wow": "so much"
+            },
+            "children": [
               {
                 "name": "wow",
                 "status": "changed",
                 "value1": "",
                 "value2": "so much"
               }
-            ],
-            "value2": ""
+            ]
           },
           {
             "name": "key",
             "status": "unchanged",
             "value1": "value",
-            "value2": ""
+            "value2": "value"
           },
           {
             "name": "ops",
             "status": "added",
-            "value1": "vops",
-            "value2": ""
+            "value2": "vops"
           }
-        ],
-        "value2": ""
+        ]
       }
-    ],
-    "value2": ""
+    ]
   },
   {
     "name": "group1",
     "status": "nested",
-    "value1": [
+    "value1": {
+      "baz": "bas",
+      "foo": "bar",
+      "nest": {
+        "key": "value"
+      }
+    },
+    "value2": {
+      "foo": "bar",
+      "baz": "bars",
+      "nest": "str"
+    },
+    "children": [
       {
         "name": "baz",
         "status": "changed",
@@ -90,7 +140,7 @@
         "name": "foo",
         "status": "unchanged",
         "value1": "bar",
-        "value2": ""
+        "value2": "bar"
       },
       {
         "name": "nest",
@@ -100,8 +150,7 @@
         },
         "value2": "str"
       }
-    ],
-    "value2": ""
+    ]
   },
   {
     "name": "group2",
@@ -111,20 +160,18 @@
       "deep": {
         "id": 45
       }
-    },
-    "value2": ""
+    }
   },
   {
     "name": "group3",
     "status": "added",
-    "value1": {
+    "value2": {
       "deep": {
         "id": {
           "number": 45
         }
       },
       "fee": 100500
-    },
-    "value2": ""
+    }
   }
 ]

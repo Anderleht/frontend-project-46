@@ -17,22 +17,23 @@ const getDiff = (data1, data2) => {
       return {
         name: key,
         status: 'added',
-        value1: val2,
-        value2,
+        value1: val1,
+        value2: val2,
       };
     } if (!Object.hasOwn(data2, key)) {
       return {
         name: key,
         status: 'deleted',
         value1: val1,
-        value2,
+        value2: val2,
       };
     } if (typeof val1 === 'object' && typeof val2 === 'object') {
       return {
         name: key,
         status: 'nested',
-        value1: getDiff(data1[key], data2[key]),
-        value2,
+        value1: val1,
+        value2: val2,
+        children: getDiff(data1[key], data2[key]),
       };
     } if (data1[key] !== data2[key]) {
       return {
@@ -46,7 +47,7 @@ const getDiff = (data1, data2) => {
       name: key,
       status: 'unchanged',
       value1: val1,
-      value2,
+      value2: val2,
     };
   }, {});
   return result;

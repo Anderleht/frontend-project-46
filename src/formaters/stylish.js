@@ -19,9 +19,9 @@ const stylish = (value) => {
     const arrValue = Object.values(currentValue);
     const lines = arrValue.map((val) => {
       if (val.status === 'added') {
-        return `${indent(depth)}+ ${val.name}: ${stringify(val.value1, depth + 1)}`;
+        return `${indent(depth)}+ ${val.name}: ${stringify(val.value2, depth + 1)}`;
       } if (val.status === 'nested') {
-        return `${indent(depth)}  ${val.name}: ${iter(val.value1, depth + 1)}`;
+        return `${indent(depth)}  ${val.name}: ${iter(val.children, depth + 1)}`;
       } if (val.status === 'deleted') {
         return `${indent(depth)}- ${val.name}: ${stringify(val.value1, depth + 1)}`;
       } if (val.status === 'unchanged') {
