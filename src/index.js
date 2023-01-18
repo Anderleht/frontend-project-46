@@ -1,14 +1,21 @@
 import path from 'path';
-import { getDiff, readFile } from './getDiff.js';
+import fs from 'fs';
+import getDiff from './getDiff.js';
 import parse from './parsers.js';
-import getFormat from './formaters/index.js';
+import format from './formaters/index.js';
 
-const genDiff = (filePath1, filePath2, format = 'stylish') => {
-  const format1 = path.extname(filePath1);
-  const format2 = path.extname(filePath2);
-  const firstFile = parse(readFile(filePath1), format1);
-  const secondFile = parse(readFile(filePath2), format2);
-  const diffTree = getDiff(firstFile, secondFile);
-  return getFormat(diffTree, format);
+const readFile = (filePath) => fs.readFileSync(path.resolve(filePath));
+
+const getData = (filePath) => {
+  const formatOfFile = path.extname(filePath).slice(1);
+  return parse(readFile(filePath), formatOfFile);
 };
+
+const genDiff = (filePath1, filePath2, formater = 'stylish') => {
+  const data1 = getData(filePath1);
+  const data2 = getData(filePath2);
+  const diffTree = getDiff(data1, data2);
+  return format(diffTree, formater);
+};
+
 export default genDiff;

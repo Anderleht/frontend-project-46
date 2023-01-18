@@ -1,5 +1,3 @@
-import fs from 'fs';
-import path from 'path';
 import _ from 'lodash';
 
 const getKeys = (obj1, obj2) => {
@@ -17,25 +15,21 @@ const getDiff = (data1, data2) => {
       return {
         name: key,
         status: 'added',
-        value1: val1,
-        value2: val2,
+        value: val2,
       };
     } if (!Object.hasOwn(data2, key)) {
       return {
         name: key,
         status: 'deleted',
-        value1: val1,
-        value2: val2,
+        value: val1,
       };
-    } if (typeof val1 === 'object' && typeof val2 === 'object') {
+    } if (_.isPlainObject(val1) && _.isPlainObject(val2)) {
       return {
         name: key,
         status: 'nested',
-        value1: val1,
-        value2: val2,
         children: getDiff(data1[key], data2[key]),
       };
-    } if (data1[key] !== data2[key]) {
+    } if (!_.isEqual(data1[key], data2[key])) {
       return {
         name: key,
         status: 'changed',
@@ -46,13 +40,10 @@ const getDiff = (data1, data2) => {
     return {
       name: key,
       status: 'unchanged',
-      value1: val1,
-      value2: val2,
+      value: val1,
     };
   }, {});
   return result;
 };
 
-const readFile = (filePath) => fs.readFileSync(path.resolve(filePath));
-
-export { getDiff, readFile };
+export default getDiff;

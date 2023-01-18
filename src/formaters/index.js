@@ -1,19 +1,16 @@
 import plain from './plain.js';
 import stylish from './stylish.js';
 
-const getFormat = (value, format) => {
-  if (format === 'stylish') {
-    const str = stylish(value);
-    return `${str.substring(0, str.length - 3)}}`;
+const format = (data, formater) => {
+  if (formater === 'stylish') {
+    return stylish(data);
   }
-  if (format === 'plain') {
-    const str = plain(value);
-    return str;
+  if (formater === 'plain') {
+    return plain(data);
   }
-  if (format === 'json') {
-    const str = JSON.stringify(value, null, 2);
-    return str;
+  if (formater === 'json') {
+    return JSON.stringify(data, null, 2);
   }
-  throw new Error(`Wrong formater: ${format}`);
+  throw new Error(`Wrong formater: ${formater}`);
 };
-export default getFormat;
+export default format;

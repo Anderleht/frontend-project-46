@@ -21,7 +21,7 @@ const plain = (value) => {
     const lines = arrValue.flatMap((val) => {
       const currentPath = choosePath(path, val);
       if (val.status === 'added') {
-        return `Property '${currentPath}' was added with value: ${getType(val.value2)}`;
+        return `Property '${currentPath}' was added with value: ${getType(val.value)}`;
       } if (val.status === 'changed') {
         return `Property '${currentPath}' was updated. From ${getType(val.value1)} to ${getType(val.value2)}`;
       } if (val.status === 'nested') {
