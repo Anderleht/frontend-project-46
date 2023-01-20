@@ -20,7 +20,7 @@ const stylish = (value) => {
       if (val.status === 'added') {
         return `${indent(depth)}+ ${val.name}: ${stringify(val.value, depth + 1)}`;
       } if (val.status === 'nested') {
-        return `${indent(depth)}  ${val.name}: ${iter(val.children, depth + 1)}`;
+        return `${indent(depth)}${val.name}: ${iter(val.children, depth + 1)}`;
       } if (val.status === 'deleted') {
         return `${indent(depth)}- ${val.name}: ${stringify(val.value, depth + 1)}`;
       } if (val.status === 'unchanged') {
@@ -28,7 +28,7 @@ const stylish = (value) => {
       }
       return `${indent(depth)}- ${val.name}: ${stringify(val.value1, depth + 1)}\n${indent(depth)}+ ${val.name}: ${stringify(val.value2, depth + 1)}`;
     });
-    const result = ['{', ...lines, `${indent(depth - 1)}  }`].join('\n');
+    const result = ['{', ...lines, `${indent(depth - 1)}}`].join('\n');
     return result;
   };
   return iter(value, 1);
