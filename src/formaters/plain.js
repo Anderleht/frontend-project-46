@@ -20,14 +20,20 @@ const plain = (value) => {
     const arrValue = Object.values(currentValue);
     const lines = arrValue.flatMap((val) => {
       const currentPath = choosePath(path, val);
-      if (val.status === 'added') {
-        return `Property '${currentPath}' was added with value: ${getType(val.value)}`;
-      } if (val.status === 'changed') {
-        return `Property '${currentPath}' was updated. From ${getType(val.value1)} to ${getType(val.value2)}`;
-      } if (val.status === 'nested') {
-        return iter(val.children, currentPath);
+      switch (val.status) {
+        case 'unchanged':
+          return [];
+        case 'deleted':
+          return `Property '${currentPath}' was removed`;
+        case 'nested':
+          return iter(val.children, currentPath);
+        case 'changed':
+          return `Property '${currentPath}' was updated. From ${getType(val.value1)} to ${getType(val.value2)}`;
+        case 'added':
+          return `Property '${currentPath}' was added with value: ${getType(val.value)}`;
+        default:
+          throw new Error(`Unknown type ${val.stat}`);
       }
-      return (val.status === 'deleted') ? `Property '${currentPath}' was removed` : [];
     });
     const filteredLines = lines.filter((line) => line !== undefined);
     return filteredLines.join('\n');
