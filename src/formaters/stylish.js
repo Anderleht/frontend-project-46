@@ -18,16 +18,20 @@ const stylish = (value) => {
     const lastBracketIndent = depth === 1 ? '' : `${indent(depth - 1)}  `;
     const arrValue = Object.values(currentValue);
     const lines = arrValue.map((val) => {
-      if (val.status === 'added') {
-        return `${indent(depth)}+ ${val.name}: ${stringify(val.value, depth + 1)}`;
-      } if (val.status === 'nested') {
-        return `${indent(depth)}  ${val.name}: ${iter(val.children, depth + 1)}`;
-      } if (val.status === 'deleted') {
-        return `${indent(depth)}- ${val.name}: ${stringify(val.value, depth + 1)}`;
-      } if (val.status === 'unchanged') {
-        return `${indent(depth)}  ${val.name}: ${stringify(val.value, depth + 1)}`;
+      switch (val.status) {
+        case 'changed':
+          return `${indent(depth)}- ${val.name}: ${stringify(val.value1, depth + 1)}\n${indent(depth)}+ ${val.name}: ${stringify(val.value2, depth + 1)}`;
+        case 'unchanged':
+          return `${indent(depth)}  ${val.name}: ${stringify(val.value, depth + 1)}`;
+        case 'deleted':
+          return `${indent(depth)}- ${val.name}: ${stringify(val.value, depth + 1)}`;
+        case 'nested':
+          return `${indent(depth)}  ${val.name}: ${iter(val.children, depth + 1)}`;
+        case 'added':
+          return `${indent(depth)}+ ${val.name}: ${stringify(val.value, depth + 1)}`;
+        default:
+          throw new Error(`Unknown type ${val.stat}`);
       }
-      return `${indent(depth)}- ${val.name}: ${stringify(val.value1, depth + 1)}\n${indent(depth)}+ ${val.name}: ${stringify(val.value2, depth + 1)}`;
     });
     const result = ['{', ...lines, `${lastBracketIndent}}`].join('\n');
     return result;
